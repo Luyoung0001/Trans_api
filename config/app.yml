@@ -1,6 +1,6 @@
 app:
   app: app配置文件读取成功
 mysql:
-  dns: root:XXX@tcp(127.0.0.1:3306)/transapi?charset=utf8mb4&parseTime=True&loc=Local
+  dns: root:xxx@tcp(39.104.17.28:3306)/transapi?charset=utf8mb4&parseTime=True&loc=Local
 port:
   server: ":9000"

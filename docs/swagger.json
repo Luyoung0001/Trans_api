@@ -4,6 +4,70 @@
         "contact": {}
     },
     "paths": {
+        "/chinese": {
+            "get": {
+                "description": "根据传入的中文单词查询对应的英语翻译",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "查询中文翻译的英语单词",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "中文单词",
+                        "name": "chinese",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功返回",
+                        "schema": {
+                            "$ref": "#/definitions/service.SearchResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/english": {
+            "get": {
+                "description": "根据传入的英文单词查询对应的英语翻译",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "查询英文单词的一切信息",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "英文单词",
+                        "name": "english",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功返回",
+                        "schema": {
+                            "$ref": "#/definitions/service.SearchResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/word": {
             "get": {
                 "description": "根据传入的英语单词查询对应的中文翻译",
@@ -16,13 +80,14 @@
                 "tags": [
                     "用户模块"
                 ],
-                "summary": "查询单词的中文翻译",
+                "summary": "查询英语单词的中文翻译",
                 "parameters": [
                     {
                         "type": "string",
                         "description": "英语单词",
                         "name": "english",
-                        "in": "query"
+                        "in": "formData",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -41,10 +106,14 @@
             "type": "object",
             "properties": {
                 "code": {
+                    "description": "状态码",
                     "type": "integer"
                 },
-                "data": {},
+                "data": {
+                    "description": "数据"
+                },
                 "message": {
+                    "description": "消息",
                     "type": "string"
                 }
             }

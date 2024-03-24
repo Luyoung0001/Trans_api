@@ -1,6 +1,6 @@
 package modules
 
-type Word struct {
+type Words struct {
 	ID              string  `gorm:"column:vc_id"`               // 单词id	57067c89a172044907c6698e
 	Vocabulary      string  `gorm:"column:vc_vocabulary"`       // 单词	superspecies
 	PhoneticUK      string  `gorm:"column:vc_phonetic_uk"`      // uk英音音标	[su:pərsˈpi:ʃi:z]
@@ -10,8 +10,8 @@ type Word struct {
 	AcknowledgeRate float32 `gorm:"column:vc_acknowledge_rate"` // 认识率 0.664
 }
 
-func (table *Word) TableName() string {
-	return "word"
+func (table *Words) TableName() string {
+	return "words"
 }
 
 type WordTranslation struct {

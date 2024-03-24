@@ -27,4 +27,19 @@ func bind() {
 	if err != nil {
 		log.Fatal("Failed to migrate database:", err)
 	}
+
+	err = utils.DB.AutoMigrate(&modules.Words{})
+	if err != nil {
+		log.Fatal("Failed to migrate database:", err)
+	}
+
+	err = utils.DB.AutoMigrate(&modules.Book{})
+	if err != nil {
+		log.Fatal("Failed to migrate database:", err)
+	}
+
+	err = utils.DB.AutoMigrate(&modules.RelationBookWord{})
+	if err != nil {
+		log.Fatal("Failed to migrate database:", err)
+	}
 }

@@ -2,23 +2,27 @@ definitions:
   service.SearchResponse:
     properties:
       code:
+        description: 状态码
         type: integer
-      data: {}
+      data:
+        description: 数据
       message:
+        description: 消息
         type: string
     type: object
 info:
   contact: {}
 paths:
-  /word:
+  /chinese:
     get:
       consumes:
       - application/json
-      description: 根据传入的英语单词查询对应的中文翻译
+      description: 根据传入的中文单词查询对应的英语翻译
       parameters:
-      - description: 英语单词
-        in: query
-        name: english
+      - description: 中文单词
+        in: formData
+        name: chinese
+        required: true
         type: string
       produces:
       - application/json
@@ -27,7 +31,49 @@ paths:
           description: 成功返回
           schema:
             $ref: '#/definitions/service.SearchResponse'
-      summary: 查询单词的中文翻译
+      summary: 查询中文翻译的英语单词
+      tags:
+      - 用户模块
+  /english:
+    get:
+      consumes:
+      - application/json
+      description: 根据传入的英文单词查询对应的英语翻译
+      parameters:
+      - description: 英文单词
+        in: formData
+        name: english
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功返回
+          schema:
+            $ref: '#/definitions/service.SearchResponse'
+      summary: 查询英文单词的一切信息
+      tags:
+      - 用户模块
+  /word:
+    get:
+      consumes:
+      - application/json
+      description: 根据传入的英语单词查询对应的中文翻译
+      parameters:
+      - description: 英语单词
+        in: formData
+        name: english
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功返回
+          schema:
+            $ref: '#/definitions/service.SearchResponse'
+      summary: 查询英语单词的中文翻译
       tags:
       - 用户模块
 swagger: "2.0"
