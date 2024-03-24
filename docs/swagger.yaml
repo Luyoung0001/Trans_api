@@ -1,0 +1,33 @@
+definitions:
+  service.SearchResponse:
+    properties:
+      code:
+        type: integer
+      data: {}
+      message:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /word:
+    get:
+      consumes:
+      - application/json
+      description: 根据传入的英语单词查询对应的中文翻译
+      parameters:
+      - description: 英语单词
+        in: query
+        name: english
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功返回
+          schema:
+            $ref: '#/definitions/service.SearchResponse'
+      summary: 查询单词的中文翻译
+      tags:
+      - 用户模块
+swagger: "2.0"
