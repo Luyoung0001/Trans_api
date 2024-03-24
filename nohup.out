@@ -1,0 +1,61 @@
+config app: map[app:app配置文件读取成功]
+root:Password@123@tcp(127.0.0.1:3306)/transapi?charset=utf8mb4&parseTime=True&loc=Local
+Database connection successful!
+
+2024/03/24 20:35:12 [32m/root/trans_api/main.go:26
+[0m[33m[0.131ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2024/03/24 20:35:12 [32m/root/trans_api/main.go:26
+[0m[33m[1.075ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'transapi%' ORDER BY SCHEMA_NAME='transapi' DESC,SCHEMA_NAME limit 1
+
+2024/03/24 20:35:12 [32m/root/trans_api/main.go:26
+[0m[33m[1.630ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = 'transapi' AND table_name = 'word_translation' AND table_type = 'BASE TABLE'
+
+2024/03/24 20:35:12 [32m/root/trans_api/main.go:26
+[0m[33m[0.124ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2024/03/24 20:35:12 [32m/root/trans_api/main.go:26
+[0m[33m[0.773ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'transapi%' ORDER BY SCHEMA_NAME='transapi' DESC,SCHEMA_NAME limit 1
+
+2024/03/24 20:35:12 [32m/root/trans_api/main.go:26
+[0m[33m[0.455ms] [34;1m[rows:-][0m SELECT * FROM `word_translation` LIMIT 1
+
+2024/03/24 20:35:12 [32m/root/trans_api/main.go:26
+[0m[33m[1.447ms] [34;1m[rows:-][0m SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'transapi' AND table_name = 'word_translation' ORDER BY ORDINAL_POSITION
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /word                     --> trans_api/service.Eng2Chi (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :9000
+verb
+2024/03/24 20:35:19 [32m/root/trans_api/modules/searchEnglish.go:11
+[0m[33m[110.455ms] [34;1m[rows:1][0m SELECT * FROM `word_translation` WHERE word = 'verb' ORDER BY `word_translation`.`id` LIMIT 1
+{99176 verb n.[语]动词}[GIN] 2024/03/24 - 20:35:19 | 200 |  110.716324ms |    111.21.39.37 | GET      "/word?english=verb"
+verb
+2024/03/24 20:35:36 [32m/root/trans_api/modules/searchEnglish.go:11
+[0m[33m[86.443ms] [34;1m[rows:1][0m SELECT * FROM `word_translation` WHERE word = 'verb' ORDER BY `word_translation`.`id` LIMIT 1
+{99176 verb n.[语]动词}[GIN] 2024/03/24 - 20:35:36 | 200 |    86.68258ms |    111.21.39.37 | GET      "/word?english=verb"
+deal
+2024/03/24 20:35:43 [32m/root/trans_api/modules/searchEnglish.go:11
+[0m[33m[19.769ms] [34;1m[rows:1][0m SELECT * FROM `word_translation` WHERE word = 'deal' ORDER BY `word_translation`.`id` LIMIT 1
+{22708 deal n.交易,(政治上的)密约,待遇,份量,<口>买卖vi.处理,应付,做生意vt.分配,分给(out),发牌,给予}[GIN] 2024/03/24 - 20:35:43 | 200 |   19.986107ms |    111.21.39.37 | GET      "/word?english=deal"
+good
+2024/03/24 20:37:13 [32m/root/trans_api/modules/searchEnglish.go:11
+[0m[33m[30.134ms] [34;1m[rows:1][0m SELECT * FROM `word_translation` WHERE word = 'good' ORDER BY `word_translation`.`id` LIMIT 1
+{38509 good n.好,好事,慷慨的行为,好处,利益adj.优良的,上等的,虔诚的,愉快的,慈善的,好心的,有益的}[GIN] 2024/03/24 - 20:37:13 | 200 |   30.327649ms |    111.21.39.44 | GET      "/word?english=good"
+good
+2024/03/24 20:37:48 [32m/root/trans_api/modules/searchEnglish.go:11
+[0m[33m[29.176ms] [34;1m[rows:1][0m SELECT * FROM `word_translation` WHERE word = 'good' ORDER BY `word_translation`.`id` LIMIT 1
+{38509 good n.好,好事,慷慨的行为,好处,利益adj.优良的,上等的,虔诚的,愉快的,慈善的,好心的,有益的}[GIN] 2024/03/24 - 20:37:48 | 200 |   29.431182ms |     124.89.2.68 | GET      "/word?english=good"
+[GIN] 2024/03/24 - 20:37:48 | 404 |         541ns |     124.89.2.68 | GET      "/favicon.ico"
+good
+2024/03/24 21:33:14 [32m/root/trans_api/modules/searchEnglish.go:11
+[0m[33m[28.938ms] [34;1m[rows:1][0m SELECT * FROM `word_translation` WHERE word = 'good' ORDER BY `word_translation`.`id` LIMIT 1
+{38509 good n.好,好事,慷慨的行为,好处,利益adj.优良的,上等的,虔诚的,愉快的,慈善的,好心的,有益的}[GIN] 2024/03/24 - 21:33:14 | 200 |   29.126873ms |    111.21.39.37 | GET      "/word?english=good"
+[GIN] 2024/03/24 - 21:41:42 | 404 |         788ns |  113.215.189.93 | GET      "/"

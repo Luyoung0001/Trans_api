@@ -16,7 +16,7 @@ func Router() *gin.Engine {
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 	// restFUL api
 	r.GET("/word", service.Eng2Chi) // 查询英语
-	// r.GET("/chinese/:word", service.Chi2Eng) // 查询汉字
+	r.GET("/chinese", service.Chi2Eng) // 查询汉字
 
 	return r
 }

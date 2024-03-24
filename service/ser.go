@@ -16,7 +16,7 @@ type SearchResponse struct {
 // @Summary 查询单词的中文翻译
 // @Description 根据传入的英语单词查询对应的中文翻译
 // @Tags 用户模块
-// @Accept json
+// @Accept string
 // @Produce json
 // @Param english FormData string false "英语单词"
 // @Success 200 {object} SearchResponse "成功返回"
@@ -36,18 +36,18 @@ func Eng2Chi(c *gin.Context) {
 // @Summary 查询中文翻译的英语单词
 // @Description 根据传入的中文单词查询对应的英语翻译
 // @Tags 用户模块
-// @Accept json
+// @Accept string
 // @Produce json
-// @Param chinese query string false "中文单词"
-// @Success 200 {object} gin.H{"code": 0, "message": "查询单词成功!", "data": modules.SearchChiResponse} "成功返回"
-// @Router /word [get]
-//func Chi2Eng(c *gin.Context) {
-//	// 查询数据库
-//	chinese := c.Query("chinese")
-//	data := modules.SearchChi(chinese)
-//	c.JSON(200, gin.H{
-//		"code":    0,
-//		"message": "查询单词成功!",
-//		"data":    data,
-//	})
-//}
+// @Param chinese FormData string false "中文单词"
+// @Success 200 {object} SearchResponse "成功返回"
+// @Router /chinese [get]
+func Chi2Eng(c *gin.Context) {
+	// 查询数据库
+	chinese := c.Request.FormValue("chinese")
+	data := modules.SearchChi(chinese)
+	c.JSON(200, gin.H{
+		"code":    0,
+		"message": "查询单词成功!",
+		"data":    data,
+	})
+}
