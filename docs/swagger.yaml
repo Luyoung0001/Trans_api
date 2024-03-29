@@ -10,17 +10,24 @@ definitions:
         description: 消息
         type: string
     type: object
+externalDocs:
+  description: OpenAPI
+host: localhost:9000
 info:
-  contact: {}
+  contact:
+    email: luyoung0001@gmail.com
+    name: luyoung
+  description: This is a celler server
+  termsOfService: http://swagger.io/terms/
+  title: trans_api
+  version: "1.0"
 paths:
   /chinese:
     get:
-      consumes:
-      - application/json
       description: 根据传入的中文单词查询对应的英语翻译
       parameters:
       - description: 中文单词
-        in: formData
+        in: query
         name: chinese
         required: true
         type: string
@@ -28,7 +35,11 @@ paths:
       - application/json
       responses:
         "200":
-          description: 成功返回
+          description: 查询成功
+          schema:
+            $ref: '#/definitions/service.SearchResponse'
+        "400":
+          description: 查询失败
           schema:
             $ref: '#/definitions/service.SearchResponse'
       summary: 查询中文翻译的英语单词
@@ -36,12 +47,10 @@ paths:
       - 用户模块
   /english:
     get:
-      consumes:
-      - application/json
       description: 根据传入的英文单词查询对应的英语翻译
       parameters:
       - description: 英文单词
-        in: formData
+        in: query
         name: english
         required: true
         type: string
@@ -49,7 +58,11 @@ paths:
       - application/json
       responses:
         "200":
-          description: 成功返回
+          description: 查询成功
+          schema:
+            $ref: '#/definitions/service.SearchResponse'
+        "400":
+          description: 查询失败
           schema:
             $ref: '#/definitions/service.SearchResponse'
       summary: 查询英文单词的一切信息
@@ -57,12 +70,10 @@ paths:
       - 用户模块
   /word:
     get:
-      consumes:
-      - application/json
       description: 根据传入的英语单词查询对应的中文翻译
       parameters:
       - description: 英语单词
-        in: formData
+        in: query
         name: english
         required: true
         type: string
@@ -70,10 +81,17 @@ paths:
       - application/json
       responses:
         "200":
-          description: 成功返回
+          description: 查询成功
+          schema:
+            $ref: '#/definitions/service.SearchResponse'
+        "400":
+          description: 查询失败
           schema:
             $ref: '#/definitions/service.SearchResponse'
       summary: 查询英语单词的中文翻译
       tags:
       - 用户模块
+securityDefinitions:
+  BasicAuth:
+    type: basic
 swagger: "2.0"

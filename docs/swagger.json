@@ -1,15 +1,20 @@
 {
     "swagger": "2.0",
     "info": {
-        "contact": {}
+        "description": "This is a celler server",
+        "title": "trans_api",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "luyoung",
+            "email": "luyoung0001@gmail.com"
+        },
+        "version": "1.0"
     },
+    "host": "localhost:9000",
     "paths": {
         "/chinese": {
             "get": {
                 "description": "根据传入的中文单词查询对应的英语翻译",
-                "consumes": [
-                    "application/json"
-                ],
                 "produces": [
                     "application/json"
                 ],
@@ -22,13 +27,19 @@
                         "type": "string",
                         "description": "中文单词",
                         "name": "chinese",
-                        "in": "formData",
+                        "in": "query",
                         "required": true
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "成功返回",
+                        "description": "查询成功",
+                        "schema": {
+                            "$ref": "#/definitions/service.SearchResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "查询失败",
                         "schema": {
                             "$ref": "#/definitions/service.SearchResponse"
                         }
@@ -39,9 +50,6 @@
         "/english": {
             "get": {
                 "description": "根据传入的英文单词查询对应的英语翻译",
-                "consumes": [
-                    "application/json"
-                ],
                 "produces": [
                     "application/json"
                 ],
@@ -54,13 +62,19 @@
                         "type": "string",
                         "description": "英文单词",
                         "name": "english",
-                        "in": "formData",
+                        "in": "query",
                         "required": true
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "成功返回",
+                        "description": "查询成功",
+                        "schema": {
+                            "$ref": "#/definitions/service.SearchResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "查询失败",
                         "schema": {
                             "$ref": "#/definitions/service.SearchResponse"
                         }
@@ -71,9 +85,6 @@
         "/word": {
             "get": {
                 "description": "根据传入的英语单词查询对应的中文翻译",
-                "consumes": [
-                    "application/json"
-                ],
                 "produces": [
                     "application/json"
                 ],
@@ -86,13 +97,19 @@
                         "type": "string",
                         "description": "英语单词",
                         "name": "english",
-                        "in": "formData",
+                        "in": "query",
                         "required": true
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "成功返回",
+                        "description": "查询成功",
+                        "schema": {
+                            "$ref": "#/definitions/service.SearchResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "查询失败",
                         "schema": {
                             "$ref": "#/definitions/service.SearchResponse"
                         }
@@ -118,5 +135,13 @@
                 }
             }
         }
+    },
+    "securityDefinitions": {
+        "BasicAuth": {
+            "type": "basic"
+        }
+    },
+    "externalDocs": {
+        "description": "OpenAPI"
     }
 }

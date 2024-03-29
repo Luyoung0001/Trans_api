@@ -8,6 +8,15 @@ import (
 	"trans_api/utils"
 )
 
+// @title           trans_api
+// @version         1.0
+// @description     This is a celler server
+// @termsOfService  http://swagger.io/terms/
+// @contact.name   luyoung
+// @contact.email  luyoung0001@gmail.com
+// @host      localhost:9000
+// @securityDefinitions.basic  BasicAuth
+// @externalDocs.description  OpenAPI
 func main() {
 	utils.InitConfig()
 	utils.InitMySQL()

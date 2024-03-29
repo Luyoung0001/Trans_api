@@ -6,8 +6,12 @@ import (
 
 // 简单查询中文的意思
 
-func SearchChi(chinese string) WordTranslation {
+func SearchChi(chinese string) *WordTranslation {
 	data := WordTranslation{}
 	utils.DB.Where("translation LIKE ?", "%"+chinese+"%").First(&data)
-	return data
+	// 如果 id 为 0,就是查不到
+	if data.ID == 0 {
+		return nil
+	}
+	return &data
 }
