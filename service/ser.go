@@ -65,7 +65,7 @@ func Chi2Eng(c *gin.Context) {
 
 	// 如果查询失败，返回其他状态码
 	c.JSON(200, SearchResponse{
-		Code:    1,
+		Code:    2,
 		Message: "查询单词成功!",
 		Data:    data,
 	})
@@ -95,7 +95,7 @@ func SearchEn(c *gin.Context) {
 
 	// 如果查询失败，返回其他状态码
 	c.JSON(200, SearchResponse{
-		Code:    1,
+		Code:    3,
 		Message: "查询单词成功!",
 		Data:    data,
 	})

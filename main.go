@@ -14,7 +14,6 @@ import (
 // @termsOfService  http://swagger.io/terms/
 // @contact.name   luyoung
 // @contact.email  luyoung0001@gmail.com
-// @host      localhost:9000
 // @securityDefinitions.basic  BasicAuth
 // @externalDocs.description  OpenAPI
 func main() {

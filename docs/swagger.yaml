@@ -12,7 +12,6 @@ definitions:
     type: object
 externalDocs:
   description: OpenAPI
-host: localhost:9000
 info:
   contact:
     email: luyoung0001@gmail.com
